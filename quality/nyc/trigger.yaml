@@ -1,0 +1,11 @@
+tool: nyc
+language: javascript
+language_version: "22"
+technique: "Statement / Branch Coverage"
+target_files: [../../src/]
+run:
+  command: "npx nyc --reporter=text mocha 'test/**/*.test.js'"
+expects:
+  coverage_report_generated: true
+verified_in_session: true
+verified_result: "93.87% stmts / 62.5% branch / 92.3% funcs / 95.23% lines across src/ (100% on data/widgets.js and routes/); app.js's require.main listen() guard (lines 14-15) is the only gap, not exercised by the request tests"
