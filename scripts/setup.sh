@@ -7,7 +7,7 @@ if ((BASH_VERSINFO[0] < 4)); then
   exit 1
 fi
 
-echo "Setting up environment..."
+echo "Setting up dependencies and environment..."
 npm install
 if npm run | grep -q 'build'; then
   npm run build

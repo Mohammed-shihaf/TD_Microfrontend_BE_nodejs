@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: microfrontend-be-nodejs
+  name: td-microfrontend-be-nodejs
   labels:
-    app: microfrontend-be-nodejs
+    app: td-microfrontend-be-nodejs
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: microfrontend-be-nodejs
+      app: td-microfrontend-be-nodejs
   template:
     metadata:
       labels:
-        app: microfrontend-be-nodejs
+        app: td-microfrontend-be-nodejs
     spec:
       containers:
         - name: app
-          image: microfrontend-be-nodejs:18
+          image: td-microfrontend-be-nodejs:18
           ports:
             - containerPort: 3000
           readinessProbe:
@@ -29,11 +29,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: microfrontend-be-nodejs
+  name: td-microfrontend-be-nodejs
 spec:
   type: ClusterIP
   ports:
     - port: 80
       targetPort: 3000
   selector:
-    app: microfrontend-be-nodejs
+    app: td-microfrontend-be-nodejs

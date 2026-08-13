@@ -11,7 +11,7 @@ terraform {
 provider "docker" {}
 
 resource "docker_image" "app" {
-  name = "microfrontend-be-nodejs:latest"
+  name = "td-microfrontend-be-nodejs:latest"
   build {
     context    = "."
     dockerfile = "infra/Dockerfile"
@@ -19,7 +19,7 @@ resource "docker_image" "app" {
 }
 
 resource "docker_container" "app" {
-  name  = "microfrontend-be-nodejs-container"
+  name  = "td-microfrontend-be-nodejs-container"
   image = docker_image.app.image_id
   ports {
     internal = 3000
